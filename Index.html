@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesly | Amante de la Tecnología</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, #fff0f5 0%, #fffbeb 50%, #fef3c7 100%);
+            min-height: 100vh;
+            color: #831843;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Perfil */
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #fbbf24, 0 10px 40px rgba(251, 191, 36, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .gold-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            border: 2px dashed #fbbf24;
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #fbbf24;
+            font-size: 1.5rem;
+            animation: sparkle 2s infinite;
+        }
+
+        .sparkle-1 { top: -10px; right: -10px; }
+        .sparkle-2 { bottom: -5px; left: -5px; animation-delay: 1s; }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.3) rotate(180deg); opacity: 0.7; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #831843 0%, #e11d48 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d97706;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .subtitle::before,
+        .subtitle::after {
+            content: '✦';
+            color: #fbbf24;
+            margin: 0 10px;
+            font-size: 0.8rem;
+        }
+
+        .bio {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* Separador dorado */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+        }
+
+        .divider-icon {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+
+        /* Enlaces */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-card {
+            display: block;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+            border-color: #fbbf24;
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .link-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #fffbeb, #fff);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            flex-shrink: 0;
+        }
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #831843;
+            margin-bottom: 5px;
+        }
+
+        .link-desc {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .link-arrow {
+            color: #fbbf24;
+            font-size: 1.3rem;
+        }
+
+        /* Placeholder futuros enlaces */
+        .add-more {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.85rem;
+            font-style: italic;
+            border: 2px dashed rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+        }
+
+        .footer-line {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            margin: 0 auto 20px;
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-heart {
+            color: #e11d48;
+            animation: heartbeat 2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            h1 { font-size: 2.4rem; }
+            .profile-img { width: 120px; height: 120px; }
+            .gold-ring { width: 140px; height: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Perfil -->
+        <div class="profile">
+            <div class="photo-frame">
+                <div class="gold-ring"></div>
+                <span class="sparkle sparkle-1">✨</span>
+                <span class="sparkle sparkle-2">✨</span>
+                <img src="perfil.jpg" alt="Lesly" class="profile-img">
+            </div>
+            
+            <h1>Lesly</h1>
+            <div class="subtitle">Amante de la tecnología</div>
+            
+            <p class="bio">
+                Creando experiencias digitales únicas donde la ingeniería encuentra el diseño.
+            </p>
+        </div>
+
+        <!-- Separador -->
+        <div class="divider">
+            <div class="divider-line"></div>
+            <span class="divider-icon">✦</span>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Enlaces -->
+        <div class="links-section">
+            <a href="https://lesly134567.github.io/leslyportafaolio.github.io/" class="link-card" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">💼</div>
+                    <div class="link-text">
+                        <div class="link-title">Mi Portafolio</div>
+                        <div class="link-desc">Conoce mis proyectos y experiencia</div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </div>
+            </a>
+
+            <a href="https://lesly134567.github.io/creaciondepaginasweb.github.io/" class="link-card" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">🌐</div>
+                    <div class="link-text">
+                        <div class="link-title">Creación de Páginas Web</div>
+                        <div class="link-desc">Servicios de desarrollo web personalizado</div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </div>
+            </a>
+
+            <div class="add-more">
+                ✨ Más enlaces próximamente ✨
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-line"></div>
+            <p class="footer-text">
+                Hecho con <span class="footer-heart">♥</span> por Lesly
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
